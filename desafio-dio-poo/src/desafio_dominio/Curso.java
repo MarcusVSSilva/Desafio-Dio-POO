@@ -1,32 +1,19 @@
 package desafio_dominio;
 
-public class Curso {
+public class Curso extends Conteudo{
     //lista de atributos
-    private String titulo;
-    private String descricao;
     private int cargaHoraria;
 
     //construtor sem parametros
     public Curso(){};
 
+    //metodo calcularXp, herdado da classe mãe Conteud
+    @Override
+    public double calcularXp() {
+        return XP_PADRAO * cargaHoraria;
+    }
+
     //métodos get e set 
-
-    public String getTitulo(){
-        return titulo;
-    }
-
-    public void setTitulo(String titulo){
-        this.titulo = titulo;
-    }
-
-    public String getDescricao(){
-        return descricao;
-    }
-
-    public void setDescricao(String descricao){
-        this.descricao = descricao;
-    }
-
     public int getCargaHoraria(){
         return cargaHoraria;
     }
@@ -35,13 +22,15 @@ public class Curso {
         this.cargaHoraria = cargaHoraria;
     }
 
+    //utlizaremos o getTitulo e getDescricao pois os atribtuos forma declarados como private, na classe Conteudo
     @Override
     public String toString(){
         return "Curso{" +
-        "titulo='" + titulo + '\'' +
-        ", descricao='" + descricao + '\'' +
+        "titulo='" + getTitulo() + '\'' +
+        ", descricao='" + getDescricao() + '\'' +
         ", cargaHoraria=" + cargaHoraria +
         '}';   
     }
+
 }
 
